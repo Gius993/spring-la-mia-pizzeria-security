@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promozioni</title>
+</head>
+<body>
+
+	
+		<form id="formPromo" 
+			th:action="@{/offerte/create}" 
+			method="post"
+			th:object="${promozione}">
+		>
+			
+			<input type="hidden" th:field="${promozione.pizza}">
+			<label  for="dataInizio"></label>
+			<input  id="dataInizio" th:field="*{dataInizio}" type="date">
+			
+			
+					<label  for="dataFine"></label>
+			<input  id="dataFine" th:field="*{dataFine}" type="date">	
+	  		
+				<label  for="titolo"></label>
+			<input  id="titolo" th:field="*{titolo}" type="text">	
+		
+			
+			<button type="submit">Salva</button>
+		  	<a  th:href="@{/}">Annulla</a>
+		
+		
+		</form> 
+		
+		
+	
+
+</body>
+</html>

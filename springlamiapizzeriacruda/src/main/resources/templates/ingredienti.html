@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+	</link>
+	<title>Lista ingredienti</title>
+</head>
+
+<body>
+
+	<a th:href="@{/ingredienti/create}"> crea ingrediente</a>
+	<ul>
+		<li th:each="ingredients : ${ingredienti}" >
+			<span th:text="${ingredients.name}"></span>
+			<a th:href="@{|/ingredienti/edit/${ingredients.id}|}" > modifica ingrediente</a>
+			<form th:action="@{'/ingredienti/delete/{id}'(id=${ingredients.id})}" method="post">
+				<button type="submit" id="submitButton">
+					cancella ingrediente
+				</button>
+			</form>
+		</li>
+	</ul>
+</body>
+
+</html>

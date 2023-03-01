@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Pizze</title>
+</head>
+
+<body>
+	<h1>Pizze</h1>
+	<div>
+		<ul>
+			<li th:each="pizza : ${pizze}">
+				<a th:href="@{/details/{id}(id=${pizza.id})}" th:text="${pizza.name}"></a>
+				<div th:text="${pizza.description}"></div>
+				<div th:text="${pizza.price}"></div> $
+				
+				</a>
+				<a th:href="@{'/edit/{id}'(id=${pizza.id})}"> Modifica</a>
+				<form action="#" th:action="@{'/delete/{id}'(id=${pizza.id})}" method="post">
+					<button type="submit" id="submitButton">
+						Elimina
+					</button>
+				</form>
+			</li>
+		</ul>
+		<a class="nav-link" th:href="@{/create}" th:classAppend="${pagina=='create'}? active : not-active"> 
+			crea pizza </a>
+			<a th:href="@{/ingredienti}">
+				vai a ingredienti
+			</a>
+	</div>
+</body>
+
+</html>

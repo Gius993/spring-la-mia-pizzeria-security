@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Pizze</title>
+</head>
+
+<body>
+	<h1>[[${pizza.name}]]!</h1>
+	<ul th:each="promo : ${pizza.promozione}" class="text-danger">
+
+		<li th:text="${promo.dataInizio}"></li>
+		<li th:text="${promo.dataFine}"></li>
+		<li th:text="${promo.titolo}"></li>
+	</ul>
+		<h3>Ingredienti:</h3>
+		<ul>
+			<li th:each="ing : ${pizza.ingredienti}" th:text="${ing.name}">
+				
+			</li>
+		</ul>
+	<a th:href="@{'/offerte/create?pizzaId='+${pizza.id}}">Crea Nuova offerta</a>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Pizze</title>
+</head>
+
+<body>
+	<form id="pizza-form" th:object="${pizza}" th:action="@{/create}" method="post">
+		<ul>
+			<li th:each="err : ${#fields.allErrors()}" th:text="${err}" class="text-danger">
+			</li>
+		</ul>
+		<label for="name" class="form-label">Nome</label>
+		<input type="text" class="form-control" id="name" th:field="*{name}">
+
+		<label for="description" class="form-label">descrivi la pizza</label>
+		<input type="text" class="form-control" id="description" th:field="*{description}">
+
+		<label for="img" class="form-label">inserisci una foto</label>
+		<input type="text" class="form-control" id="img" th:field="*{img}">
+
+		<label for="price" class="form-label">pezzo</label>
+		<input type="number" min="0" max="60" class="form-control" id="price" th:field="*{price}">
+		
+			<div th:each="ing : ${ingredienti}" >
+				<input type="checkbox"
+					th:value="${ing.id}" th:field="*{ingredienti}"> <label
+					th:text="${ing.name}"></label>
+			</div>
+		
+
+		<button type="submit">Salva</button>
+	</form>
+	<a class="nav-link" th:href="@{/}" th:classAppend="${pagina=='pizze'}? active : not-active"> torna indietro
+	</a>
+</body>
+
+</html>

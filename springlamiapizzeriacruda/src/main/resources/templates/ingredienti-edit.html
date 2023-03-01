@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+	</link>
+	<title>Lista ingredienti</title>
+</head>
+
+<body>
+
+	<form id="formIngredienti" th:object=${ingredienti} th:action="@{/ingredienti/edit/{id}(id=${ingredienti.id})}"
+		method="POST">
+		<h2>Modifica il tuo Ingrediente:</h2>
+
+
+		<input type="text" id="name" th:field="*{name}">
+
+
+
+		<div class="mt-3">
+			<button type="submit">Modifica il tuo
+				Ingrediente</button>
+			<a class="btn btn-primary" th:href="@{/pizze}"> Annulla</a>
+
+
+	</form>
+	</div>
+
+</body>
+
+</html>
